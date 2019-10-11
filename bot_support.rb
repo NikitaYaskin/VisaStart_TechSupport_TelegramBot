@@ -46,12 +46,12 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
     
     when /.*арматурник.*/,/.*арматура.*/
     	bot.api.sendMessage(chat_id: message.chat.id, text: "АРМАТУРНИК\n Зарплата 17 - 20 зл/год\n Місто Варшава, Польща\n Житло Безкоштовне\nhttps://visastart.com/vacancy/armaturnyk/")
-        bot.api.send_photo(chat_id: message.chat.id, photo: Faraday::UploadIO.new('C:\Users\VS\Desktop\для інстаграму\Арматурник.jpg', 'image\jpeg'))
+        #bot.api.send_photo(chat_id: message.chat.id, photo: Faraday::UploadIO.new('C:\Users\VS\Desktop\для інстаграму\Арматурник.jpg', 'image\jpeg'))
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
     
     when /.*опалубка.*/, /.*опалубник.*/
     	bot.api.sendMessage(chat_id: message.chat.id, text: "ОПАЛУБНИК\n Зарплата 18 - 22 зл/год\n Місто Варшава, Польща\n Житло Безкоштовне\nhttps://visastart.com/vacancy/opalubshhyk/")
-        bot.api.send_photo(chat_id: message.chat.id, photo: Faraday::UploadIO.new('C:\Users\VS\Desktop\для інстаграму\Опалубник.jpg', 'image\jpeg'))
+        #bot.api.send_photo(chat_id: message.chat.id, photo: Faraday::UploadIO.new('C:\Users\VS\Desktop\для інстаграму\Опалубник.jpg', 'image\jpeg'))
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
     
     when /.*де ви знаходитесь.*/, /.*контакти.*/
