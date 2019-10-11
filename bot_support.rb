@@ -83,6 +83,18 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
     when /.*вакансії.*/,/.*вакансія.*/,/.*робота.*/
         bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії\nАрматурник, Опалубник, Електромонтер, Муляр, Електрик, Нові вакансії")
 
+    when /.*польща.*/,/.*польша.*/
+        bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії у Польщі\nАрматурник, Опалубник, Електромонтер, Муляр, Електрик")
+
+    when /.*німеччина.*/,/.*германия.*/
+        bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії у Німеччині\nОфіціант, Покоївка, Плиточник")
+
+    when /.*будівельники.*/,/.*строители.*/,/.*будова.*/,/.*стройка.*/
+        bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії по Будові\nАрматурник, Опалубник, Електромонтер, Муляр, Електрик")
+
+    when /.*сфера обслуговування.*/,/.*сфера обслуживания.*/,/.*обслуживание.*/,/.*персонал.*/
+        bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії у Сфері обслуговування\n Офіціант, Покоївка")
+
     when /.*муляр.*/,/.*муровка.*/,/.*муровщик.*/
          bot.api.sendMessage(chat_id: message.chat.id, text: "МУЛЯР\n Зарплата 15 - 17 зл/год\n Місто Варшава, Польща\n Житло Безкоштовне\nhttps://visastart.com/vacancy/mulyar-riznorobochi/")
          bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
