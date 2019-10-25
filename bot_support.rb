@@ -45,10 +45,12 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
     	bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
     
     when /.*арматурник.*/,/.*арматура.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/HAijoUqUw2pJZyH3A')
     	bot.api.sendMessage(chat_id: message.chat.id, text: "АРМАТУРНИК\n Зарплата 17 - 20 зл/год\n Місто Варшава, Польща\n Житло Безкоштовне\nhttps://visastart.com/vacancy/armaturnyk/")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
     
     when /.*опалубка.*/, /.*опалубник.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/dngwVMQSBEPCGHKZ8')
     	bot.api.sendMessage(chat_id: message.chat.id, text: "ОПАЛУБНИК\n Зарплата 18 - 22 зл/год\n Місто Варшава, Польща\n Житло Безкоштовне\nhttps://visastart.com/vacancy/opalubshhyk/")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
     
@@ -65,6 +67,7 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
     	bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380932575078", first_name: "Служба підтримки", last_name: "VisaStart", vcard: "Viber, Telegram")
 
     when /.*зелена карта.*/,/.*грін карта.*/,/.*green card.*/,/.*грін карту.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/CRJqBH5X8oLEYsES8')
     	bot.api.sendMessage(chat_id: message.chat.id, text: "Бажаєте заповнити анкету на розіграш Зеленої Карти 2021?\nЗалишіть ваш номер телефону, або подайте заявку в нас на сайті. І ми зв'яжемось з вами.\nhttps://visastart.com/greencard/\nМожете подавати ваші данні в чат боті: Залиште ваше ім'я та прізвище латинськими літерами, електронну пошту та фото в електронному вигляді як на паспорт")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
 
@@ -84,50 +87,63 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
         bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії\nАрматурник, Опалубник, Електромонтер, Муляр, Електрик, Нові вакансії")
 
     when /.*польща.*/,/.*польша.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/69ujKpwMbQv8xiU56')
         bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії у Польщі\nАрматурник, Опалубник, Електромонтер, Муляр, Електрик")
 
     when /.*німеччина.*/,/.*германия.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/kVyd55d4mR8M8BTD9')
         bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії у Німеччині\nОфіціант, Покоївка, Плиточник")
 
     when /.*будівельники.*/,/.*строители.*/,/.*будова.*/,/.*стройка.*/
-        bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії по Будові\nАрматурник, Опалубник, Електромонтер, Муляр, Електрик")
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/BMVdLV1myasaT8z46')
+        bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії по Будові\nАрматурник\nОпалубник\nЕлектромонтер\nМуляр\nЕлектрик")
 
     when /.*сфера обслуговування.*/,/.*сфера обслуживания.*/,/.*обслуживание.*/,/.*персонал.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/rDmVSj1dXoLuSqYt8')
         bot.api.sendMessage(chat_id: message.chat.id, text: "В нас є такі вакансії у Сфері обслуговування\n Офіціант, Покоївка")
 
     when /.*муляр.*/,/.*муровка.*/,/.*муровщик.*/
-         bot.api.sendMessage(chat_id: message.chat.id, text: "МУЛЯР\n Зарплата 15 - 17 зл/год\n Місто Варшава, Польща\n Житло Безкоштовне\nhttps://visastart.com/vacancy/mulyar-riznorobochi/")
-         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/XRSLr3FtNMiZGddD8')
+        bot.api.sendMessage(chat_id: message.chat.id, text: "МУЛЯР\n Зарплата 15 - 17 зл/год\n Місто Варшава, Польща\n Житло Безкоштовне\nhttps://visastart.com/vacancy/mulyar-riznorobochi/")
+        bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
 
     when /.*електромонтер.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://www.google.com/imgres?imgurl=http%3A%2F%2Fxn--c1adfgnledbxn1b3hya.xn--p1ai%2Fwp-content%2Fuploads%2F2018%2F01%2F47.jpg&imgrefurl=http%3A%2F%2Fxn--c1adfgnledbxn1b3hya.xn--p1ai%2F%25D1%258D%25D0%25BB%25D0%25B5%25D0%25BA%25D1%2582%25D1%2580%25D0%25BE%25D0%25BC%25D0%25BE%25D0%25BD%25D1%2582%25D0%25B5%25D1%2580-%25D1%2580%25D0%25B5%25D0%25BC%25D0%25BE%25D0%25BD%25D1%2582%25D1%2583-%25D0%25BE%25D0%25B1%25D1%2581%25D0%25BB%25D1%2583%25D0%25B6%25D0%25B8%25D0%25B2%25D0%25B0.html&docid=48XgTeR7QbmnSM&tbnid=qkSbpIoydGXOtM%3A&vet=1&w=640&h=480&source=sh%2Fx%2Fim')
         bot.api.sendMessage(chat_id: message.chat.id, text: "ЕЛЕКТРОМОНТЕР\n Зарплата 15 - 17 зл/год\n Місто Хелм, Польща\n Житло Безкоштовне")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
 
     when /.*нові вакансії.*/,/.*нові ваканції.*/,/.*ваканції нові.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/Fwna2eimwhAQj3bi9')
         bot.api.sendMessage(chat_id: message.chat.id, text: "Сортувальник електро відходів\nДорожній робітник\nОператор електричної рохли\nШоколадна фабрика")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
 
     when /.*сортувальник електро відходів.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/qsDTe9SPt1crzQjTA')
         bot.api.sendMessage(chat_id: message.chat.id, text: "!!! НОВА ВАКАНСІЯ !!! NEW !!!\nСортувальник електро відходів\n Зарплата 13 зл/год\n Місто околиця Варшави\n Житло Безкоштовне (250 зл/міс за комунальні послуги)\n Телефонуйте!!!!")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
 
      when /.*дорожній робітник.*/
+     	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/KixVHDseNZJGujSL8')
         bot.api.sendMessage(chat_id: message.chat.id, text: "!!! НОВА ВАКАНСІЯ !!! NEW !!!\n Дорожній робітник\n Зарплата 12 зл/год\n Місто Седльце\n Житло Безкоштовне\n Телефонуйте!!!!")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
 
     when /.*оператор електричної рохли.*/,/.*оператор електреской рохли.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/g6jzzUdHjg9XePgq5')
         bot.api.sendMessage(chat_id: message.chat.id, text: "Оператор електричної рохли\n Зарплата 14 зл/год\n Місто Коєтани\n Житло Безкоштовне (250 зл/міс за комунальні послуги)\n Телефонуйте!!!!")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
 
     when /.*шоколадна фабрика.*/,/.*шоколадная фабрика.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/5Q4qiJ7UK96pjr2C7')
         bot.api.sendMessage(chat_id: message.chat.id, text: "Шоколадна фабрика\n Зарплата 11 зл/год\n Місто Камєна Гура\n Житло 11 зл/доба\n Телефонуйте!!!!")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
 
     when /.*офіціантка.*/,/.*офіціант.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/DyjrSMvgiiK8WKWK6')
         bot.api.sendMessage(chat_id: message.chat.id, text: "!!! НОВА ВАКАНСІЯ !!! NEW !!!\nОфіціантка\n Зарплата 7 євро/год\n Місто Берлін, Німеччина\n Житло Безкоштовне\n Телефонуйте!!!!")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
 
     when /.*покоївка.*/
+    	bot.api.sendPhoto(chat_id: message.chat.id, photo: 'https://images.app.goo.gl/ccoodqphXGoyCMxG9')
         bot.api.sendMessage(chat_id: message.chat.id, text: "!!! НОВА ВАКАНСІЯ !!! NEW !!!\nПокоївка\n Зарплата 6 євро/год\n Місто Берлін, Німеччина\n Житло Безкоштовне\n Телефонуйте!!!!")
         bot.api.sendContact(chat_id: message.chat.id, phone_number: "+380987649888", first_name: "VisaStart", last_name: "Працевлаштування за кордоном", vcard: "Viber, Telegram")
 
