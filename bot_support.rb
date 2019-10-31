@@ -1,4 +1,6 @@
 require 'telegram/bot'
+require_relative 'eurorobota_scrapper'
+require 'json'
 
 TOKEN = ''
 
@@ -21,6 +23,18 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
 
     when '/help'
     	bot.api.sendMessage(chat_id: message.chat.id, text: "#{message.from.first_name}, напишіть питання яке вас цікавить\nЧат бот реагує на такі слова:\nАрматура, опалубка, контакти, страховка, віза, привітання всіх видів,\nменежер, зелена карта, вакансії, нові вакансії,\nзарплата, житло, страхівка.")
+
+    when '/резюме'
+        a = WebScrapper.new
+        result = a.getDitailsFromAllResumes
+        result = JSON.pretty_generate(result)
+
+        File.open("temp.json","w") do |f|
+            f.write(result.to_json)
+        end
+
+        bot.api.sendMessage(chat_id: message.chat.id, text: "#{message.from.first_name}, на данний момент є такі резюме")
+        bot.api.sendDocument(chat_id: message.chat.id,document: Faraday::UploadIO.new('temp.json', 'file'))
 
     when /.*як справи.*/,/.*як ся маєш.*/,/.*як ваші справи.*/,/.*як твої справи.*/
         bot.api.sendMessage(chat_id: message.chat.id, text: "#{message.from.first_name}, все чудово, а у вас як справи?")
