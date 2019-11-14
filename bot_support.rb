@@ -25,16 +25,32 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
     	bot.api.sendMessage(chat_id: message.chat.id, text: "#{message.from.first_name}, напишіть питання яке вас цікавить\nЧат бот реагує на такі слова:\nАрматура, опалубка, контакти, страховка, віза, привітання всіх видів,\nменежер, зелена карта, вакансії, нові вакансії,\nзарплата, житло, страхівка.")
 
     when '/резюме'
-        a = WebScrapper.new
-        result = a.getDitailsFromAllResumes
-        result = JSON.pretty_generate(result)
+        scrapResumes = WebScrapper.new
+        resumes = scrapResumes.getDitailsFromAllResumes
+        resumes = JSON.pretty_generate(resumes)
 
-        File.open("temp.json","w") do |f|
-            f.write(result.to_json)
+        File.open("vacancy.json","w") do |f|
+            f.write(resumes.to_json)
         end
 
         bot.api.sendMessage(chat_id: message.chat.id, text: "#{message.from.first_name}, на данний момент є такі резюме")
-        bot.api.sendDocument(chat_id: message.chat.id,document: Faraday::UploadIO.new('temp.json', 'file'))
+        bot.api.sendDocument(chat_id: message.chat.id,document: Faraday::UploadIO.new('vacancy.json', 'file'))
+
+        File.delete('vacancy.json') if File.exist?('vacancy.json')
+
+    when /міста/
+        cities = Hash['а', ['Авдіївка', 'Алмазна', 'Алупкa', 'Алушта', 'Алчевськ', 'Амвросіївка', 
+            'Ананьїв', 'Андрушівка', 'Антрацит', 'Апостолове', 'Армянськ', 'Арциз'], 
+            'б', ['Балаклія','Балта','Бар','Баранівка','Барвінкове','Батурин','Бахмач','Бахмут',
+                'Бахчисарай','Баштанка','Белз','Бердичів','Бердянськ','Берегове','Бережани','Березань',
+                'Березівка','Березнe','Берестечко','Берислав ','Бершадь','Бібрка','Біла Церква',
+                'Білгород-Дністровський', 'Білицьке','Білогірськ','Білозерське', 'Білопілля','Біляївка',
+                'Благовіщенське', 'Бобринець', 'Бобровиця', 'Богодухів', 'Богуслав', 'Боково-Хрустальне',
+                'Болград', 'Болехів', 'Борзна', 'Борислав', 'Бориспіль', 'Борщів', 'Боярка', 'Бровари',
+                'Броди', 'Брянка', 'Бунге', 'Буринь', 'Бурштин', 'Буськ', 'Буча','Бучач']]
+        city = message.text.downcase.split(' ').last
+        variant = cities[city[-1,1]]
+        bot.api.sendMessage(chat_id: message.chat.id, text: "Ви ввели таке місто #{city.capitalize},\n#{variant.sample}")
 
     when /.*як справи.*/,/.*як ся маєш.*/,/.*як ваші справи.*/,/.*як твої справи.*/
         bot.api.sendMessage(chat_id: message.chat.id, text: "#{message.from.first_name}, все чудово, а у вас як справи?")
