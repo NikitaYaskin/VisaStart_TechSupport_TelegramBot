@@ -2,7 +2,7 @@ require 'telegram/bot'
 require_relative 'eurorobota_scrapper'
 require 'json'
 
-TOKEN = ''
+TOKEN = '737113657:AAHZBsquPCFNYM6CPjlnC_ZwivznNSPCE3o'
 
 Telegram::Bot::Client.run(TOKEN) do |bot|
   bot.listen do |message|
@@ -24,7 +24,7 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
     when '/help'
     	bot.api.sendMessage(chat_id: message.chat.id, text: "#{message.from.first_name}, напишіть питання яке вас цікавить\nЧат бот реагує на такі слова:\nАрматура, опалубка, контакти, страховка, віза, привітання всіх видів,\nменежер, зелена карта, вакансії, нові вакансії,\nзарплата, житло, страхівка.")
 
-    when '/резюме'
+    when '/resume'
         scrapResumes = WebScrapper.new
         resumes = scrapResumes.getDitailsFromAllResumes
         resumes = JSON.pretty_generate(resumes)
@@ -38,7 +38,7 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
 
         File.delete('vacancy.json') if File.exist?('vacancy.json')
 
-    when /міста/
+    when /city/
         cities = Hash['а', ['Авдіївка', 'Алмазна', 'Алупкa', 'Алушта', 'Алчевськ', 'Амвросіївка', 
             'Ананьїв', 'Андрушівка', 'Антрацит', 'Апостолове', 'Армянськ', 'Арциз'], 
             'б', ['Балаклія','Балта','Бар','Баранівка','Барвінкове','Батурин','Бахмач','Бахмут',
