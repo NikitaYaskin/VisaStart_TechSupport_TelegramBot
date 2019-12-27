@@ -2,7 +2,7 @@ require 'telegram/bot'
 require_relative 'eurorobota_scrapper'
 require 'json'
 
-TOKEN = '737113657:AAHZBsquPCFNYM6CPjlnC_ZwivznNSPCE3o'
+TOKEN = ''
 
 Telegram::Bot::Client.run(TOKEN) do |bot|
   bot.listen do |message|
