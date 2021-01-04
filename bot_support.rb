@@ -1,8 +1,10 @@
 require 'telegram/bot'
 
-TOKEN = ENV['TOKEN']
+AWS::S3::Base.establish_connection!(
+    :secret_access_key => ENV['TOKEN']
+   )
 
-Telegram::Bot::Client.run(TOKEN) do |bot|
+Telegram::Bot::Client.run(:secret_access_key) do |bot|
   bot.listen do |message|
     case message.text.downcase
 
